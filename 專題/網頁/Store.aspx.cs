@@ -74,6 +74,8 @@ namespace 網頁
             if (orderDr.Read())
             {
                 Session["order_id"] = orderDr["order_id"];
+                Session["size"] = sweetlist.SelectedValue;
+                Session["pack"] = icelist.SelectedValue;
                 orderBT.Text = orderDr["order_id"] + " 號訂單";
                 orderBT.Enabled = false;
 
@@ -149,6 +151,17 @@ namespace 網頁
                 if (oderItemGridView1.Rows[i].Cells[4].FindControl("subtotalLabel") != null)
                 {
                     total += Convert.ToInt32(((Label)oderItemGridView1.Rows[i].Cells[4].FindControl("subtotalLabel")).Text);
+                    if(spDetailsView1.Rows[i].Cells[0].Text == "big")   //沒成功，看之後想不想繼續更改
+                    {
+                        total += 10;
+                    }else if(spDetailsView1.Rows[i].Cells[0].Text == "middle")
+                    {
+                        total += 5;
+                    }
+                    if(spDetailsView1.Rows[i].Cells[1].Text == "精緻包裝")
+                    {
+                        total += 20;
+                    }
                 }
                 cupEditCheck(ref warmMag, i);
             }

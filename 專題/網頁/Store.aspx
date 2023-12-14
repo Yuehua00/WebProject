@@ -80,18 +80,18 @@
         <strong>
         <asp:DropDownList ID="cuplist" runat="server" CssClass="auto-style6" Visible="False">
         </asp:DropDownList>
-        <asp:Label ID="cuplb" runat="server" CssClass="auto-style5" Text="杯" Visible="False"></asp:Label>
+        <asp:Label ID="cuplb" runat="server" CssClass="auto-style5" Text="件" Visible="False"></asp:Label>
         <asp:DropDownList ID="sweetlist" runat="server" CssClass="auto-style6" Visible="False">
-            <asp:ListItem>正常</asp:ListItem>
-            <asp:ListItem>半糖</asp:ListItem>
-            <asp:ListItem>少糖</asp:ListItem>
-            <asp:ListItem>微糖</asp:ListItem>
-            <asp:ListItem>無糖</asp:ListItem>
+            <asp:ListItem Value="big">大</asp:ListItem>
+            <asp:ListItem Value="middle">中</asp:ListItem>
+            <asp:ListItem Value="little">小</asp:ListItem>
         </asp:DropDownList>
+        <asp:Label ID="cuplb0" runat="server" CssClass="auto-style5" Text="份" Visible="False"></asp:Label>
         <asp:DropDownList ID="icelist" runat="server" CssClass="auto-style6" Visible="False">
-            <asp:ListItem>正常</asp:ListItem>
-            <asp:ListItem>少冰</asp:ListItem>
-            <asp:ListItem>去冰</asp:ListItem>
+            <asp:ListItem>無包裝</asp:ListItem>
+            <asp:ListItem>單獨包裝</asp:ListItem>
+            <asp:ListItem>合併包裝</asp:ListItem>
+            <asp:ListItem>精緻包裝</asp:ListItem>
         </asp:DropDownList>
         <asp:Button ID="addItemBT" runat="server" CssClass="auto-style6" Enabled="False" OnClick="Button1_Click" Text="添加" Visible="False" />
         </strong>
@@ -317,6 +317,13 @@
                 <asp:SessionParameter Name="order_id" SessionField="order_id" />
             </DeleteParameters>
         </asp:SqlDataSource>
+        <asp:SqlDataSource ID="sizePackSqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [sweet], [ice] FROM [odderTable]"></asp:SqlDataSource>
+        <asp:DetailsView ID="spDetailsView1" runat="server" AutoGenerateRows="False" DataSourceID="sizePackSqlDataSource1" Height="50px" Visible="False" Width="125px">
+            <Fields>
+                <asp:BoundField DataField="sweet" HeaderText="sweet" SortExpression="sweet" />
+                <asp:BoundField DataField="ice" HeaderText="ice" SortExpression="ice" />
+            </Fields>
+        </asp:DetailsView>
     </form>
 </body>
 </html>
