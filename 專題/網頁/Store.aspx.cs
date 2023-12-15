@@ -13,6 +13,7 @@ namespace 網頁
         protected void Page_Load(object sender, EventArgs e)
         {
             drinkDetailsView1.DataBind();
+            discountDetailsView.DataBind();
             userShowLB.Text = Session["name"] + " 歡迎光臨<br>您還剩下" + Session["money"] + " 元";
             if (!IsPostBack)
             {
@@ -122,6 +123,11 @@ namespace 網頁
             checkBT.Visible = false;
             cancelBT.Visible = false;
             arrorLB.Visible = false;
+            discountLB.Visible = false;
+            discountBT.Visible = false;
+            discountTB.Visible = false;
+            cantuseLB.Visible = false;
+            discountDetailsView.Visible = false;
         }
         protected void drinkList_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -138,7 +144,9 @@ namespace 網頁
             totalLabel.Visible = true;
             checkBT.Visible = true;
             cancelBT.Visible = true;
-
+            discountLB.Visible = true;
+            discountBT.Visible = true;
+            discountTB.Visible = true;
         }
 
         
@@ -174,6 +182,56 @@ namespace 網頁
                 checkBT.Enabled = false;
             }
             if(Convert.ToInt32(Session["money"]) < total)
+            {
+                checkBT.Enabled = false;
+                arrorLB.Text = "餘額不足";
+                arrorLB.Visible = true;
+            }
+        }
+        private void discountTotal()
+        {
+            int total = 0 , discounttotal = 0;
+            string warmMag = "";
+            for (int i = 0; i < oderItemGridView1.Rows.Count; i++)
+            {
+                if (oderItemGridView1.Rows[i].Cells[4].FindControl("subtotalLabel") != null)
+                {
+                    total += Convert.ToInt32(((Label)oderItemGridView1.Rows[i].Cells[4].FindControl("subtotalLabel")).Text);
+                    if (spDetailsView1.Rows[i].Cells[0].Text == "big")   //沒成功，看之後想不想繼續更改
+                    {
+                        total += 10;
+                    }
+                    else if (spDetailsView1.Rows[i].Cells[0].Text == "middle")
+                    {
+                        total += 5;
+                    }
+                    if (spDetailsView1.Rows[i].Cells[1].Text == "精緻包裝")
+                    {
+                        total += 20;
+                    }
+                }
+                cupEditCheck(ref warmMag, i);
+            }
+            if(total > 50)
+            {
+                discounttotal = total - 50;
+                totalLabel.Text = warmMag + " 總價: " + discounttotal + " 元";
+            }
+            else
+            {
+                discounttotal = total;
+                totalLabel.Text = warmMag + " 總價: " + discounttotal + " 元";
+                cantuseLB.Visible = true;
+            }
+            
+
+            Session["total"] = total;
+
+            if (0 == total)
+            {
+                checkBT.Enabled = false;
+            }
+            if (Convert.ToInt32(Session["money"]) < total)
             {
                 checkBT.Enabled = false;
                 arrorLB.Text = "餘額不足";
@@ -310,6 +368,25 @@ namespace 網頁
             drinkDataSelect.Delete();
             checkDataSource.Delete();
             initial();
+        }
+
+        protected void discountBT_Click(object sender, EventArgs e)
+        {
+            bool iscode = false;
+            discountDetailsView.Visible = false;
+            if (1 == discountDetailsView.DataItemCount)
+            {
+                Session["disname"] = discountDetailsView.Rows[0].Cells[1].Text;
+                Session["discode"] = discountDetailsView.Rows[1].Cells[1].Text;
+                iscode = true;
+                discountTotal();
+            }
+            else
+            {
+                Session["disname"] = null;
+                Session["discode"] = null;
+                discountDetailsView.Visible = true;
+            }
         }
     }
 }

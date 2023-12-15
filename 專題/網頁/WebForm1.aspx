@@ -24,20 +24,13 @@
             background-color: #6600CC;
             color: #FFFFFF;
         }
-        .auto-style6 {
-            width: 54px;
-        }
         .auto-style7 {
             text-align: center;
-            width: 681px;
+            width: 571px;
         }
         .auto-style8 {
             text-align: center;
-            width: 326px;
-        }
-        .auto-style9 {
-            text-align: right;
-            width: 326px;
+            width: 210px;
         }
         .auto-style10 {
             font-size: xx-large;
@@ -51,37 +44,34 @@
         </div>
         <table class="auto-style4" style="position: relative">
             <tr>
-                <td class="auto-style6">&nbsp;</td>
                 <td class="auto-style8">
                     &nbsp;</td>
                 <td class="auto-style7">
                     <asp:Label ID="Label1" runat="server" Text="帳號" CssClass="auto-style5"></asp:Label>
                     <asp:TextBox ID="TextBox1" runat="server" style="margin-left: 30px"></asp:TextBox>
                 </td>
-                <td>&nbsp;</td>
+                <td class="auto-style1">&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style6">&nbsp;</td>
                 <td class="auto-style8">
                     &nbsp;</td>
                 <td class="auto-style7">
                     <asp:Label ID="Label2" runat="server" Text="密碼" CssClass="auto-style5"></asp:Label>
                     <asp:TextBox ID="TextBox2" runat="server" style="margin-left: 30px" TextMode="Password"></asp:TextBox>
                 </td>
-                <td>&nbsp;</td>
+                <td class="auto-style1">&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style6">&nbsp;</td>
-                <td class="auto-style9">
+                <td class="auto-style8">
                     <asp:Label ID="Label3" runat="server" Text="Label" Visible="False" BackColor="Red" CssClass="auto-style10"></asp:Label>
                 </td>
                 <td class="auto-style7">
                     <asp:Button ID="Button2" runat="server" PostBackUrl="~/WebForm2.aspx" Text="註冊" />
 &nbsp;&nbsp;
                     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="登入" />
-                    <asp:LinkButton ID="LinkButton1" runat="server" Visible="False" OnClick="Button1_Click" PostBackUrl="~/Store.aspx">進入商店</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton1" runat="server" Visible="False" OnClick="Button1_Click" PostBackUrl="~/ad.aspx">進入商店</asp:LinkButton>
                 </td>
-                <td>&nbsp;</td>
+                <td class="auto-style1">&nbsp;</td>
             </tr>
         </table>
         <asp:DetailsView ID="clientDetailsView1" runat="server" AutoGenerateRows="False" DataSourceID="clientSqlDataSource1" EmptyDataText="帳號密碼錯誤" Height="50px" Visible="False" Width="125px">

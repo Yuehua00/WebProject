@@ -102,8 +102,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="-50.jpg" />
     <Content Include="a41ef11b30719118e8ae2f1bc8ca70e3.jpg" />
     <Content Include="About.aspx" />
+    <Content Include="ad.aspx" />
     <Content Include="App_Data\ClientData.mdf" />
     <Content Include="App_Data\ClientData_log.ldf">
       <DependentUpon>ClientData.mdf</DependentUpon>
@@ -170,6 +172,7 @@
     <Content Include="Store.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="WebForm2.aspx" />
+    <Content Include="背景.jpg" />
     <Content Include="螢幕擷取畫面 2023-12-11 150934.png" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -205,6 +208,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ad.aspx.cs">
+      <DependentUpon>ad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ad.aspx.designer.cs">
+      <DependentUpon>ad.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>

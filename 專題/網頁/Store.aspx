@@ -50,6 +50,12 @@
         .auto-style10 {
             height: 62px;
         }
+        .auto-style11 {
+            margin-left: 16px;
+        }
+        .auto-style12 {
+            background-color: #FFFFFF;
+        }
     </style>
 </head>
 <body style="background-image: url('b1a7659daeaa88290aa1f1705ff3c433.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-position: center center; background-size:cover">
@@ -189,29 +195,31 @@
                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                     </asp:GridView>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style8">&nbsp;</td>
-                <td>
+                    <br />
+                    <asp:Label ID="discountLB" runat="server" Text="輸入折扣碼 : " Visible="False"></asp:Label>
+                    <asp:TextBox ID="discountTB" runat="server" CssClass="auto-style11" Visible="False" Width="168px"></asp:TextBox>
+                    <asp:Button ID="discountBT" runat="server" OnClick="discountBT_Click" Text="確認" Visible="False" />
+                    <asp:DetailsView ID="discountDetailsView" runat="server" AutoGenerateRows="False" DataKeyNames="discount_name" DataSourceID="discountSqlDataSource" EmptyDataText="折扣碼錯誤" Height="50px" Visible="False" Width="125px">
+                        <Fields>
+                            <asp:BoundField DataField="discount_code" HeaderText="discount_code" SortExpression="discount_code" />
+                            <asp:BoundField DataField="discount_name" HeaderText="discount_name" ReadOnly="True" SortExpression="discount_name" />
+                        </Fields>
+                    </asp:DetailsView>
+                    <br />
+                    <asp:Label ID="cantuseLB" runat="server" CssClass="auto-style12" Text="金額太低，無法使用折扣碼" Visible="False"></asp:Label>
+                    <br />
+                    <br />
                     <asp:Label ID="totalLabel" runat="server" CssClass="auto-style9" Text="總價" Visible="False"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style8">&nbsp;</td>
-                <td>
+                    <br />
+                    <br />
                     <asp:Button ID="checkBT" runat="server" CssClass="auto-style4" OnClick="checkBT_Click" Text="確認訂購" Visible="False" />
-&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="cancelBT" runat="server" CssClass="auto-style4" OnClick="cancelBT_Click" Text="取消訂購" Visible="False" />
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style8">&nbsp;</td>
-                <td>
+                    <br />
+                    <br />
                     <asp:Label ID="arrorLB" runat="server" BackColor="White" ForeColor="Red" Text="錯誤提示" Visible="False"></asp:Label>
                 </td>
             </tr>
-        </table>
+            </table>
         <asp:SqlDataSource ID="drinkData" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [drink_name], [drink_Id] FROM [drinkTable]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="drinkDataSelect" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [drink_price], [drink_qt] FROM [drinkTable] WHERE ([drink_Id] = @drink_Id)" InsertCommand="INSERT INTO orderTable(order_time, order_userPhone) VALUES (GETDATE(), @order_userPhone)" DeleteCommand="DELETE FROM orderTable WHERE (order_Id = @order_Id)">
             <DeleteParameters>
@@ -327,6 +335,11 @@
                 <asp:BoundField DataField="ice" HeaderText="ice" SortExpression="ice" />
             </Fields>
         </asp:DetailsView>
+        <asp:SqlDataSource ID="discountSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [discount_code], [discount_name] FROM [discount] WHERE ([discount_code] = @discount_code)">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="discountTB" Name="discount_code" PropertyName="Text" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
     </form>
 </body>
 </html>
