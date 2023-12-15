@@ -197,7 +197,7 @@
                     </asp:GridView>
                     <br />
                     <asp:Label ID="discountLB" runat="server" Text="輸入折扣碼 : " Visible="False"></asp:Label>
-                    <asp:TextBox ID="discountTB" runat="server" CssClass="auto-style11" Visible="False" Width="168px"></asp:TextBox>
+                    <asp:TextBox ID="discountTB" runat="server" CssClass="auto-style11" Visible="False" Width="124px"></asp:TextBox>
                     <asp:Button ID="discountBT" runat="server" OnClick="discountBT_Click" Text="確認" Visible="False" />
                     <asp:DetailsView ID="discountDetailsView" runat="server" AutoGenerateRows="False" DataKeyNames="discount_name" DataSourceID="discountSqlDataSource" EmptyDataText="折扣碼錯誤" Height="50px" Visible="False" Width="125px">
                         <Fields>

@@ -131,16 +131,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="pic\oreo.jpg" />
-    <Content Include="pic\奶茶.jpg" />
-    <Content Include="pic\孔雀餅乾.jpg" />
-    <Content Include="pic\巧克力豆餅乾.jpg" />
-    <Content Include="pic\未選取.jpg" />
-    <Content Include="pic\白色戀人.jpg" />
-    <Content Include="pic\紅茶.jpg" />
-    <Content Include="pic\綠茶.jpg" />
-    <Content Include="pic\草莓夾心餅.jpg" />
-    <Content Include="pic\馬林糖奇福餅乾.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -278,7 +268,9 @@
       <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="pic\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
