@@ -47,6 +47,9 @@
             font-size: xx-large;
             background-color: #FFFFFF;
         }
+        .auto-style10 {
+            height: 62px;
+        }
     </style>
 </head>
 <body style="background-image: url('b1a7659daeaa88290aa1f1705ff3c433.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-position: center center; background-size:cover">
@@ -68,13 +71,13 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td>
-                    <asp:DropDownList ID="drinkList" runat="server" AutoPostBack="True" DataSourceID="drinkData" DataTextField="drink_name" DataValueField="drink_Id" OnPreRender="drinkList_PreRender" CssClass="auto-style4" Height="16px" OnSelectedIndexChanged="drinkList_SelectedIndexChanged">
+                <td class="auto-style10">
+                    <asp:DropDownList ID="drinkList" runat="server" AutoPostBack="True" DataSourceID="drinkData" DataTextField="drink_name" DataValueField="drink_Id" OnPreRender="drinkList_PreRender" CssClass="auto-style4" Height="35px" OnSelectedIndexChanged="drinkList_SelectedIndexChanged" Width="152px">
                     </asp:DropDownList>
                     <asp:Label ID="drinkPriceLB" runat="server" Text="X元" style="background-color: #FFFFFF" CssClass="auto-style4"></asp:Label>
                     <asp:Label ID="drinkQtLB" runat="server" Text="庫存: X個" style="background-color: #FFFFFF" CssClass="auto-style4"></asp:Label>
                 </td>
-                <td>&nbsp;</td>
+                <td class="auto-style10"></td>
             </tr>
         </table>
         <strong>
