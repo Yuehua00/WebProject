@@ -39,6 +39,9 @@
             text-align: right;
             width: 326px;
         }
+        .auto-style10 {
+            font-size: xx-large;
+        }
     </style>
 </head>
 <body style="background-position: center center; background-size:cover; background-image: url('https://localhost:44332/b1a7659daeaa88290aa1f1705ff3c433.jpg'); background-repeat: no-repeat; background-attachment: fixed;">
@@ -70,7 +73,7 @@
             <tr>
                 <td class="auto-style6">&nbsp;</td>
                 <td class="auto-style9">
-                    <asp:Label ID="Label3" runat="server" Text="Label" Visible="False" BackColor="Red"></asp:Label>
+                    <asp:Label ID="Label3" runat="server" Text="Label" Visible="False" BackColor="Red" CssClass="auto-style10"></asp:Label>
                 </td>
                 <td class="auto-style7">
                     <asp:Button ID="Button2" runat="server" PostBackUrl="~/WebForm2.aspx" Text="註冊" />
