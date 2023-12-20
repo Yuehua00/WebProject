@@ -78,6 +78,11 @@
                     </asp:DropDownList>
                     <asp:Label ID="drinkPriceLB" runat="server" Text="X元" style="background-color: #FFFFFF" CssClass="auto-style4"></asp:Label>
                     <asp:Label ID="drinkQtLB" runat="server" Text="庫存: X個" style="background-color: #FFFFFF" CssClass="auto-style4"></asp:Label>
+        <strong>
+        &nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="favoriteBT" runat="server" CssClass="auto-style6" OnClick="favoriteBT_Click" Text="加入最愛" />
+                    <asp:Label ID="favoriteLB" runat="server" BackColor="White" ForeColor="#CC0000" Text="成功加入最愛!" Visible="False"></asp:Label>
+        </strong>
                 </td>
                 <td class="auto-style10"></td>
             </tr>
@@ -339,6 +344,15 @@
         <asp:SqlDataSource ID="discountSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [discount_code], [discount_name] FROM [discount] WHERE ([discount_code] = @discount_code)">
             <SelectParameters>
                 <asp:ControlParameter ControlID="discountTB" Name="discount_code" PropertyName="Text" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+        <asp:SqlDataSource ID="addfavoriteSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" InsertCommand="INSERT INTO favorite_Table(favorite_1, user_name) VALUES (@favorite_1, @user_name)" SelectCommand="SELECT favorite_Table.user_name, favorite_Table.favorite_1 FROM drinkTable CROSS JOIN userData CROSS JOIN favorite_Table WHERE (favorite_Table.user_name = @name)">
+            <InsertParameters>
+                <asp:ControlParameter ControlID="drinkList" Name="favorite_1" PropertyName="SelectedValue" />
+                <asp:SessionParameter Name="user_name" SessionField="name" />
+            </InsertParameters>
+            <SelectParameters>
+                <asp:SessionParameter Name="name" SessionField="name" />
             </SelectParameters>
         </asp:SqlDataSource>
     </form>

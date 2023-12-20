@@ -85,6 +85,7 @@ namespace 網頁
                 sweetlist.Visible = true;
                 icelist.Visible = true;
                 addItemBT.Visible = true;
+                favoriteBT.Visible = true;
             }
             orderDr.Close();
         }
@@ -128,6 +129,7 @@ namespace 網頁
             discountTB.Visible = false;
             cantuseLB.Visible = false;
             discountDetailsView.Visible = false;
+            favoriteBT.Visible = false;
         }
         protected void drinkList_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -396,10 +398,16 @@ namespace 網頁
 
         
 
-        protected void Button1_Click2(object sender, EventArgs e)
+        /*protected void Button1_Click2(object sender, EventArgs e)
         {
             //Session["delivery"] = deliveryAddressTB.Text;
             orderItemDataSource1.Update();
+        }*/
+
+        protected void favoriteBT_Click(object sender, EventArgs e)
+        {
+            addfavoriteSqlDataSource.Insert();
+            favoriteLB.Visible = true;
         }
     }
 }
