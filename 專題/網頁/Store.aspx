@@ -195,10 +195,14 @@
                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                     </asp:GridView>
-                    <br />
                     <asp:Label ID="discountLB" runat="server" Text="輸入折扣碼 : " Visible="False"></asp:Label>
                     <asp:TextBox ID="discountTB" runat="server" CssClass="auto-style11" Visible="False" Width="124px"></asp:TextBox>
                     <asp:Button ID="discountBT" runat="server" OnClick="discountBT_Click" Text="確認" Visible="False" />
+                    <br />
+                    <asp:Label ID="deliveryAddressLB" runat="server" Text="外送地址(自取免填):" Visible="False"></asp:Label>
+                    <asp:TextBox ID="deliveryAddressTB" runat="server" Visible="False"></asp:TextBox>
+                    <asp:Button ID="deliveryAddressBT" runat="server" OnClick="Button1_Click2" Text="確認" Visible="False" />
+                    <br />
                     <asp:DetailsView ID="discountDetailsView" runat="server" AutoGenerateRows="False" DataKeyNames="discount_name" DataSourceID="discountSqlDataSource" EmptyDataText="折扣碼錯誤" Height="50px" Visible="False" Width="125px">
                         <Fields>
                             <asp:BoundField DataField="discount_code" HeaderText="discount_code" SortExpression="discount_code" />
@@ -301,7 +305,7 @@
                 <asp:SessionParameter Name="user_name" SessionField="name" />
             </UpdateParameters>
         </asp:SqlDataSource>
-        <asp:SqlDataSource ID="orderItemDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" InsertCommand="INSERT INTO odderTable(drink_id, order_id, num, sweet, ice) VALUES (@drink_id, @order_id, @num, @sweet, @ice)" SelectCommand="SELECT odderTable.orderItem_Id, drinkTable.drink_name, odderTable.num, odderTable.sweet, odderTable.ice, odderTable.num * drinkTable.drink_price AS subtotal, odderTable.drink_id FROM drinkTable INNER JOIN odderTable ON drinkTable.drink_Id = odderTable.drink_id WHERE (odderTable.order_id = @order_id)" DeleteCommand="DELETE FROM odderTable WHERE (orderItem_Id = @orderItem_Id)" UpdateCommand="UPDATE odderTable SET num = @num, sweet = @sweet, ice = @ice, drink_id = @drink_id WHERE (orderItem_Id = @orderItem_Id)">
+        <asp:SqlDataSource ID="orderItemDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" InsertCommand="INSERT INTO odderTable(drink_id, order_id, num, sweet, ice) VALUES (@drink_id, @order_id, @num, @sweet, @ice)" SelectCommand="SELECT odderTable.orderItem_Id, drinkTable.drink_name, odderTable.num, odderTable.sweet, odderTable.ice, odderTable.num * drinkTable.drink_price AS subtotal, odderTable.drink_id FROM drinkTable INNER JOIN odderTable ON drinkTable.drink_Id = odderTable.drink_id WHERE (odderTable.order_id = @order_id)" DeleteCommand="DELETE FROM odderTable WHERE (orderItem_Id = @orderItem_Id)" UpdateCommand="UPDATE odderTable SET num = @num, sweet = @sweet, ice = @ice, drink_id = @drink_id, deliveryAddress = @deliveryAddress WHERE (orderItem_Id = @orderItem_Id)">
             <DeleteParameters>
                 <asp:ControlParameter ControlID="oderItemGridView1" Name="orderItem_Id" PropertyName="SelectedDataKey" />
             </DeleteParameters>
@@ -320,6 +324,7 @@
                 <asp:ControlParameter ControlID="oderItemGridView1" Name="sweet" PropertyName="SelectedValue" />
                 <asp:ControlParameter ControlID="oderItemGridView1" Name="ice" PropertyName="SelectedValue" />
                 <asp:ControlParameter ControlID="oderItemGridView1" Name="drink_id" PropertyName="SelectedValue" />
+                <asp:ControlParameter ControlID="deliveryAddressTB" Name="deliveryAddress" PropertyName="Text" />
                 <asp:ControlParameter ControlID="oderItemGridView1" Name="orderItem_Id" PropertyName="SelectedDataKey" />
             </UpdateParameters>
         </asp:SqlDataSource>

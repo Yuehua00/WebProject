@@ -58,14 +58,14 @@
         }
         .auto-style18 {
             width: 542px;
-            height: 58px;
+            height: 78px;
         }
         .auto-style19 {
             width: 85px;
-            height: 58px;
+            height: 78px;
         }
         .auto-style20 {
-            height: 58px;
+            height: 78px;
         }
         .auto-style21 {
             margin-left: 0px;
