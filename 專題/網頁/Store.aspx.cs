@@ -128,9 +128,6 @@ namespace 網頁
             discountTB.Visible = false;
             cantuseLB.Visible = false;
             discountDetailsView.Visible = false;
-            deliveryAddressTB.Visible = false;
-            deliveryAddressLB.Visible = false;
-            deliveryAddressBT.Visible = false;
         }
         protected void drinkList_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -150,9 +147,6 @@ namespace 網頁
             discountLB.Visible = true;
             discountBT.Visible = true;
             discountTB.Visible = true;
-            deliveryAddressBT.Visible = true;
-            deliveryAddressTB.Visible = true;
-            deliveryAddressLB.Visible = true;
         }
 
         
@@ -400,14 +394,11 @@ namespace 網頁
             orderItemDataSource1.Update();
         }
 
-        protected void deliveryTB_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         protected void Button1_Click2(object sender, EventArgs e)
         {
-            //Session["deliveryAddress"] = deliveryAddressTB.Text;
+            //Session["delivery"] = deliveryAddressTB.Text;
             orderItemDataSource1.Update();
         }
     }

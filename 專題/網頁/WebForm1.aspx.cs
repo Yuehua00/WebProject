@@ -53,8 +53,10 @@ namespace 網頁
                 Session["address"] = null;
                 Session["account"] = null;
                 Session["email"] = null;
+                //Session["delivery"] = null;
                 //clientDetailsView1.Visible = true;
             }
         }
+
     }
 }
