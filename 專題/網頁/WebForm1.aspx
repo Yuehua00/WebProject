@@ -70,6 +70,8 @@
 &nbsp;&nbsp;
                     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="登入" />
                     <asp:LinkButton ID="LinkButton1" runat="server" Visible="False" OnClick="Button1_Click" PostBackUrl="~/ad.aspx">進入商店</asp:LinkButton>
+                    <br />
+                    <asp:Button ID="Button3" runat="server" PostBackUrl="~/ForgotPass.aspx" Text="忘記密碼" />
                 </td>
                 <td class="auto-style1">&nbsp;</td>
             </tr>

@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\專題",
-    "\\專題\\網頁"
+    "\\專題\\網頁",
+    "\\專題\\網頁\\bin"
   ],
-  "SelectedNode": "\\專題\\網頁\\WebForm1.aspx",
+  "SelectedNode": "\\專題\\網頁\\bin\\roslyn",
   "PreviewInSolutionExplorer": false
 }
