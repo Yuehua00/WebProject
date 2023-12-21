@@ -131,10 +131,7 @@ namespace 網頁
             discountDetailsView.Visible = false;
             favoriteBT.Visible = false;
         }
-        protected void drinkList_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -161,17 +158,7 @@ namespace 網頁
                 if (oderItemGridView1.Rows[i].Cells[4].FindControl("subtotalLabel") != null)
                 {
                     total += Convert.ToInt32(((Label)oderItemGridView1.Rows[i].Cells[4].FindControl("subtotalLabel")).Text);
-                    if(spDetailsView1.Rows[i].Cells[0].Text == "big")   //沒成功，看之後想不想繼續更改
-                    {
-                        total += 10;
-                    }else if(spDetailsView1.Rows[i].Cells[0].Text == "middle")
-                    {
-                        total += 5;
-                    }
-                    if(spDetailsView1.Rows[i].Cells[1].Text == "精緻包裝")
-                    {
-                        total += 20;
-                    }
+                    
                 }
                 cupEditCheck(ref warmMag, i);
             }
@@ -199,18 +186,7 @@ namespace 網頁
                 if (oderItemGridView1.Rows[i].Cells[4].FindControl("subtotalLabel") != null)
                 {
                     total += Convert.ToInt32(((Label)oderItemGridView1.Rows[i].Cells[4].FindControl("subtotalLabel")).Text);
-                    if (spDetailsView1.Rows[i].Cells[0].Text == "big")   //沒成功，看之後想不想繼續更改
-                    {
-                        total += 10;
-                    }
-                    else if (spDetailsView1.Rows[i].Cells[0].Text == "middle")
-                    {
-                        total += 5;
-                    }
-                    if (spDetailsView1.Rows[i].Cells[1].Text == "精緻包裝")
-                    {
-                        total += 20;
-                    }
+                    
                 }
                 cupEditCheck(ref warmMag, i);
             }
@@ -374,13 +350,12 @@ namespace 網頁
 
         protected void discountBT_Click(object sender, EventArgs e)
         {
-            bool iscode = false;
+
             discountDetailsView.Visible = false;
             if (1 == discountDetailsView.DataItemCount)
             {
                 Session["disname"] = discountDetailsView.Rows[0].Cells[1].Text;
                 Session["discode"] = discountDetailsView.Rows[1].Cells[1].Text;
-                iscode = true;
                 discountTotal();
             }
             else

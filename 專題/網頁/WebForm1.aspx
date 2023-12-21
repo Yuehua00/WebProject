@@ -19,6 +19,11 @@
         }
         .auto-style4 {
             width: 100%;
+            position: absolute;
+            height: 116px;
+            top: 55px;
+            left: 10px;
+            z-index: 1;
         }
         .auto-style5 {
             background-color: #6600CC;
@@ -30,13 +35,13 @@
         }
         .auto-style8 {
             text-align: center;
-            width: 210px;
+            width: 443px;
         }
         .auto-style10 {
             font-size: xx-large;
         }
         .auto-style11 {
-            font-size: small;
+            font-size: medium;
         }
     </style>
 </head>

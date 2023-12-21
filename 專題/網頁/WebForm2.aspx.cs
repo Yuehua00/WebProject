@@ -22,6 +22,7 @@ namespace 網頁
         protected void checkButton1_Click(object sender, EventArgs e)
         {
             userSqlDataSource1.Insert();
+            Label12.Visible = true;
         }
     }
 }

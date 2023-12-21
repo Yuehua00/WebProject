@@ -114,24 +114,6 @@ namespace 網頁
         protected global::System.Web.UI.WebControls.Label cuplb;
 
         /// <summary>
-        /// sweetlist 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList sweetlist;
-
-        /// <summary>
-        /// cuplb0 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label cuplb0;
-
-        /// <summary>
         /// icelist 控制項。
         /// </summary>
         /// <remarks>
@@ -139,6 +121,15 @@ namespace 網頁
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList icelist;
+
+        /// <summary>
+        /// sweetlist 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList sweetlist;
 
         /// <summary>
         /// addItemBT 控制項。

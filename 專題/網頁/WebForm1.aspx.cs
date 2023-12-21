@@ -45,6 +45,7 @@ namespace 網頁
                     Label3.Text = "帳號有誤，請重新輸入";
                     Label3.Visible = true;
                 }
+
                 Session["name"] = null;
                 Session["money"] = null;
                 Session["phone"] = null;
