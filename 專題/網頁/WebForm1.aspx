@@ -92,7 +92,7 @@
                     &nbsp;</td>
                 <td class="auto-style7">
                     <asp:LinkButton ID="LinkButton1" runat="server" Visible="False" OnClick="Button1_Click" PostBackUrl="~/ad.aspx" BackColor="#99FF99" BorderStyle="Outset">進入商店</asp:LinkButton>
-                    &nbsp;<asp:LinkButton ID="ReviseLB" runat="server" BackColor="#FF99CC" BorderStyle="Outset" Visible="False">修改會員資料</asp:LinkButton>
+                    &nbsp;<asp:LinkButton ID="ReviseLB" runat="server" BackColor="#FF99CC" BorderStyle="Outset" PostBackUrl="~/ReviseData.aspx" Visible="False">修改會員資料</asp:LinkButton>
                 </td>
                 <td class="auto-style1">&nbsp;</td>
             </tr>
