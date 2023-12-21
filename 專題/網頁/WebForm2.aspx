@@ -70,6 +70,10 @@
         .auto-style21 {
             margin-left: 0px;
         }
+        .auto-style22 {
+            font-size: x-large;
+            background-color: #33CC33;
+        }
     </style>
 </head>
 <body style="background-image: url('螢幕擷取畫面 2023-12-11 150934.png'); background-repeat: no-repeat; background-attachment: fixed; background-position: center center; background-size:cover">
@@ -232,9 +236,13 @@
             </tr>
             <tr>
                 <td class="auto-style18"></td>
-                <td class="auto-style19"></td>
+                <td class="auto-style19">
+                    <asp:Button ID="checkButton2" runat="server" BackColor="#FF9900" CssClass="auto-style8" Text="回首頁" OnClick="checkButton1_Click" PostBackUrl="~/WebForm1.aspx" />
+                </td>
                 <td class="auto-style20">
                     <asp:Button ID="checkButton1" runat="server" BackColor="#FF9900" CssClass="auto-style8" Text="註冊" OnClick="checkButton1_Click" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label12" runat="server" CssClass="auto-style22" Text="註冊成功" Visible="False"></asp:Label>
                 </td>
                 <td class="auto-style20"></td>
             </tr>

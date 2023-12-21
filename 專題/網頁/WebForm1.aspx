@@ -19,6 +19,11 @@
         }
         .auto-style4 {
             width: 100%;
+            position: absolute;
+            height: 116px;
+            top: 55px;
+            left: 10px;
+            z-index: 1;
         }
         .auto-style5 {
             background-color: #6600CC;
@@ -30,13 +35,17 @@
         }
         .auto-style8 {
             text-align: center;
-            width: 210px;
+            width: 443px;
         }
         .auto-style10 {
             font-size: xx-large;
         }
         .auto-style11 {
-            font-size: small;
+            font-size: medium;
+        }
+        .auto-style12 {
+            font-size: medium;
+            color: #FF0000;
         }
     </style>
 </head>
@@ -69,14 +78,29 @@
                     <asp:Label ID="Label3" runat="server" Text="Label" Visible="False" BackColor="Red" CssClass="auto-style10"></asp:Label>
                 </td>
                 <td class="auto-style7">
-                    <asp:Button ID="Button2" runat="server" PostBackUrl="~/WebForm2.aspx" Text="註冊" />
+                    <asp:Button ID="Button2" runat="server" PostBackUrl="~/WebForm2.aspx" Text="註冊" CssClass="auto-style11" />
 &nbsp;&nbsp;
-                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="登入" />
-                    <asp:LinkButton ID="LinkButton1" runat="server" Visible="False" OnClick="Button1_Click" PostBackUrl="~/ad.aspx">進入商店</asp:LinkButton>
-                    <br />
-                    <asp:LinkButton ID="forgotPassBT" runat="server" CssClass="auto-style11" PostBackUrl="~/ForgotPass.aspx">忘記密碼</asp:LinkButton>
-                    <br />
+                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="登入" CssClass="auto-style11" />
+                    &nbsp; <strong>
+                    <asp:LinkButton ID="forgotPassBT" runat="server" CssClass="auto-style12" PostBackUrl="~/ForgotPass.aspx">忘記密碼</asp:LinkButton>
+                    </strong>
                 </td>
+                <td class="auto-style1">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style8">
+                    &nbsp;</td>
+                <td class="auto-style7">
+                    <asp:LinkButton ID="LinkButton1" runat="server" Visible="False" OnClick="Button1_Click" PostBackUrl="~/ad.aspx" BackColor="#99FF99" BorderStyle="Outset">進入商店</asp:LinkButton>
+                    &nbsp;<asp:LinkButton ID="ReviseLB" runat="server" BackColor="#FF99CC" BorderStyle="Outset" PostBackUrl="~/ReviseData.aspx" Visible="False">修改會員資料</asp:LinkButton>
+                </td>
+                <td class="auto-style1">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style8">
+                    &nbsp;</td>
+                <td class="auto-style7">
+                    &nbsp;</td>
                 <td class="auto-style1">&nbsp;</td>
             </tr>
         </table>

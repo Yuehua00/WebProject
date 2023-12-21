@@ -21,6 +21,7 @@ namespace 網頁
 
             clientDetailsView1.Visible = false; 
             LinkButton1.Visible = false;
+            ReviseLB.Visible = false;
             if (1 == clientDetailsView1.DataItemCount)
             {
                 Session["name"] = clientDetailsView1.Rows[0].Cells[1].Text;
@@ -32,6 +33,7 @@ namespace 網頁
                 Session["account"] = clientDetailsView1.Rows[6].Cells[1].Text;
                 Session["email"] = clientDetailsView1.Rows[7].Cells[1].Text;
                 LinkButton1.Visible = true;
+                ReviseLB.Visible = true;
             }
             else
             {
@@ -45,6 +47,7 @@ namespace 網頁
                     Label3.Text = "帳號有誤，請重新輸入";
                     Label3.Visible = true;
                 }
+
                 Session["name"] = null;
                 Session["money"] = null;
                 Session["phone"] = null;

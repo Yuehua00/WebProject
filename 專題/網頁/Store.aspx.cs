@@ -20,7 +20,7 @@ namespace 網頁
                 drinkPriceLB.Text = "";
                 drinkQtLB.Text = "";
                 drinkImage1.ImageUrl = "./pic/未選取.jpg";
-                for(int i = 0; i < 50; i++)
+                for (int i = 0; i < 50; i++)
                 {
                     cuplist.Items.Insert(i, new ListItem("" + (i + 1), "" + (i + 1)));
                 }
@@ -29,32 +29,33 @@ namespace 網頁
                 sweetlist.SelectedIndex = 0;
                 icelist.SelectedIndex = 0;
             }
-            
+
         }
 
         protected void drinkList_PreRender(object sender, EventArgs e)
         {
             drinkImage1.ImageUrl = "./pic/" + drinkList.SelectedItem.Text.ToString() + ".jpg";
-            if(0 == drinkList.SelectedIndex)
+            if (0 == drinkList.SelectedIndex)
             {
                 drinkPriceLB.Text = "";
                 drinkQtLB.Text = "";
                 addItemBT.Enabled = false;
             }
-            else{
+            else
+            {
                 drinkPriceLB.Text = drinkDetailsView1.Rows[0].Cells[1].Text + " 元";
                 drinkQtLB.Text = "\t庫存: " + drinkDetailsView1.Rows[1].Cells[1].Text + " 個";
                 addItemBT.Enabled = true;
                 drinkPriceLB.ForeColor = System.Drawing.Color.Black;
                 drinkQtLB.ForeColor = System.Drawing.Color.Black;
 
-                if(Convert.ToInt32(Session["money"]) < Convert.ToInt32(drinkDetailsView1.Rows[0].Cells[1].Text))
+                if (Convert.ToInt32(Session["money"]) < Convert.ToInt32(drinkDetailsView1.Rows[0].Cells[1].Text))
                 {
                     drinkPriceLB.ForeColor = System.Drawing.Color.Red;
                     drinkPriceLB.Text += "餘額不足";
                     addItemBT.Enabled = false;
                 }
-                if(Convert.ToInt32(drinkDetailsView1.Rows[0].Cells[1].Text) <= 0)
+                if (Convert.ToInt32(drinkDetailsView1.Rows[0].Cells[1].Text) <= 0)
                 {
                     drinkQtLB.ForeColor = System.Drawing.Color.Red;
                     drinkQtLB.Text += "庫存不足";
@@ -130,11 +131,10 @@ namespace 網頁
             cantuseLB.Visible = false;
             discountDetailsView.Visible = false;
             favoriteBT.Visible = false;
+            favoriteLB.Visible = false;
+            favoriteLinkBT.Visible = false;
         }
-        protected void drinkList_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -151,39 +151,29 @@ namespace 網頁
             discountTB.Visible = true;
         }
 
-        
+
         private void countTotal()
         {
             int total = 0;
             string warmMag = "";
-            for(int i = 0; i < oderItemGridView1.Rows.Count; i++)
+            for (int i = 0; i < oderItemGridView1.Rows.Count; i++)
             {
                 if (oderItemGridView1.Rows[i].Cells[4].FindControl("subtotalLabel") != null)
                 {
                     total += Convert.ToInt32(((Label)oderItemGridView1.Rows[i].Cells[4].FindControl("subtotalLabel")).Text);
-                    if(spDetailsView1.Rows[i].Cells[0].Text == "big")   //沒成功，看之後想不想繼續更改
-                    {
-                        total += 10;
-                    }else if(spDetailsView1.Rows[i].Cells[0].Text == "middle")
-                    {
-                        total += 5;
-                    }
-                    if(spDetailsView1.Rows[i].Cells[1].Text == "精緻包裝")
-                    {
-                        total += 20;
-                    }
+
                 }
                 cupEditCheck(ref warmMag, i);
             }
-            totalLabel.Text = warmMag +  " 總價: " + total + " 元";
+            totalLabel.Text = warmMag + " 總價: " + total + " 元";
 
             Session["total"] = total;
 
-            if(0 == total)
+            if (0 == total)
             {
                 checkBT.Enabled = false;
             }
-            if(Convert.ToInt32(Session["money"]) < total)
+            if (Convert.ToInt32(Session["money"]) < total)
             {
                 checkBT.Enabled = false;
                 arrorLB.Text = "餘額不足";
@@ -192,29 +182,18 @@ namespace 網頁
         }
         private void discountTotal()
         {
-            int total = 0 , discounttotal = 0;
+            int total = 0, discounttotal = 0;
             string warmMag = "";
             for (int i = 0; i < oderItemGridView1.Rows.Count; i++)
             {
                 if (oderItemGridView1.Rows[i].Cells[4].FindControl("subtotalLabel") != null)
                 {
                     total += Convert.ToInt32(((Label)oderItemGridView1.Rows[i].Cells[4].FindControl("subtotalLabel")).Text);
-                    if (spDetailsView1.Rows[i].Cells[0].Text == "big")   //沒成功，看之後想不想繼續更改
-                    {
-                        total += 10;
-                    }
-                    else if (spDetailsView1.Rows[i].Cells[0].Text == "middle")
-                    {
-                        total += 5;
-                    }
-                    if (spDetailsView1.Rows[i].Cells[1].Text == "精緻包裝")
-                    {
-                        total += 20;
-                    }
+
                 }
                 cupEditCheck(ref warmMag, i);
             }
-            if(total > 50)
+            if (total > 50)
             {
                 discounttotal = total - 50;
                 totalLabel.Text = warmMag + " 總價: " + discounttotal + " 元";
@@ -225,7 +204,7 @@ namespace 網頁
                 totalLabel.Text = warmMag + " 總價: " + discounttotal + " 元";
                 cantuseLB.Visible = true;
             }
-            
+
 
             Session["total"] = total;
 
@@ -242,11 +221,11 @@ namespace 網頁
         }
         private void cupEditCheck(ref string msg, int i)
         {
-            if(oderItemGridView1.Rows[i].Cells[1].FindControl("itemCupLB") != null)
+            if (oderItemGridView1.Rows[i].Cells[1].FindControl("itemCupLB") != null)
             {
-                using(Label tempCupLB = (Label)oderItemGridView1.Rows[i].Cells[1].FindControl("itemCupLB"))
+                using (Label tempCupLB = (Label)oderItemGridView1.Rows[i].Cells[1].FindControl("itemCupLB"))
                 {
-                    if(tempCupLB.Text == "0")
+                    if (tempCupLB.Text == "0")
                     {
                         msg = "(錯誤的杯數)";
                         tempCupLB.ForeColor = System.Drawing.Color.Red;
@@ -262,7 +241,7 @@ namespace 網頁
 
         protected void editCupTB_TextChanged(object sender, EventArgs e)
         {
-            foreach(char ch in ((TextBox)sender).Text)
+            foreach (char ch in ((TextBox)sender).Text)
             {
                 if (!Char.IsDigit((ch)))
                 {
@@ -291,7 +270,7 @@ namespace 網頁
             arrorLB.Visible = false;
             checkBT.Enabled = true;
             countTotal();
-            
+
             qtCheckGridView1.DataBind();
             qtCheck();
 
@@ -301,19 +280,19 @@ namespace 網頁
             int num;
             int qt;
             bool isError = false;
-            for(int i = 0; i < qtCheckGridView1.Rows.Count; i++)
+            for (int i = 0; i < qtCheckGridView1.Rows.Count; i++)
             {
-                if(qtCheckGridView1.Rows[i].Cells[1].FindControl("qtNameLB") != null &&
+                if (qtCheckGridView1.Rows[i].Cells[1].FindControl("qtNameLB") != null &&
                     qtCheckGridView1.Rows[i].Cells[2].FindControl("totalNumLB") != null &&
                     qtCheckGridView1.Rows[i].Cells[3].FindControl("checkQtLB") != null)
                 {
-                    using(Label qtNameLB = (Label)qtCheckGridView1.Rows[i].Cells[1].FindControl("qtNameLB"), 
+                    using (Label qtNameLB = (Label)qtCheckGridView1.Rows[i].Cells[1].FindControl("qtNameLB"),
                         totalNumLB = (Label)qtCheckGridView1.Rows[i].Cells[2].FindControl("totalNumLB"),
                         checkQtLB = (Label)qtCheckGridView1.Rows[i].Cells[3].FindControl("checkQtLB"))
                     {
                         num = Convert.ToInt32(totalNumLB.Text);
                         qt = Convert.ToInt32(checkQtLB.Text);
-                        if(num > qt)
+                        if (num > qt)
                         {
                             arrorLB.Text += "<br>" + qtNameLB.Text + "庫存不足(剩下" + qt + "杯)";
                             isError = true;
@@ -325,12 +304,12 @@ namespace 網頁
             {
                 arrorLB.Visible = true;
                 checkBT.Enabled = false;
-                
+
             }
         }
         protected void Button1_Click1(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void checkBT_Click(object sender, EventArgs e)
@@ -374,13 +353,12 @@ namespace 網頁
 
         protected void discountBT_Click(object sender, EventArgs e)
         {
-            bool iscode = false;
+
             discountDetailsView.Visible = false;
             if (1 == discountDetailsView.DataItemCount)
             {
                 Session["disname"] = discountDetailsView.Rows[0].Cells[1].Text;
                 Session["discode"] = discountDetailsView.Rows[1].Cells[1].Text;
-                iscode = true;
                 discountTotal();
             }
             else
@@ -396,7 +374,7 @@ namespace 網頁
             orderItemDataSource1.Update();
         }
 
-        
+
 
         /*protected void Button1_Click2(object sender, EventArgs e)
         {
@@ -408,6 +386,14 @@ namespace 網頁
         {
             addfavoriteSqlDataSource.Insert();
             favoriteLB.Visible = true;
+            favoriteLinkBT.Visible = true;
+
+        }
+
+        protected void drinkList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            favoriteLB.Visible = false;
+            //favoriteLinkBT.Visible = true;
         }
     }
 }

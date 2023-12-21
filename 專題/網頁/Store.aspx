@@ -52,6 +52,9 @@
         .auto-style12 {
             background-color: #FFFFFF;
         }
+        .auto-style13 {
+            font-size: small;
+        }
     </style>
 </head>
 <body style="background-image: url('b1a7659daeaa88290aa1f1705ff3c433.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-position: center center; background-size:cover">
@@ -74,14 +77,17 @@
             </tr>
             <tr>
                 <td class="auto-style10">
-                    <asp:DropDownList ID="drinkList" runat="server" AutoPostBack="True" DataSourceID="drinkData" DataTextField="drink_name" DataValueField="drink_Id" OnPreRender="drinkList_PreRender" CssClass="auto-style4" Height="35px" OnSelectedIndexChanged="drinkList_SelectedIndexChanged" Width="152px">
+                    <strong>
+                    <asp:DropDownList ID="drinkList" runat="server" AutoPostBack="True" DataSourceID="drinkData" DataTextField="drink_name" DataValueField="drink_Id" OnPreRender="drinkList_PreRender" CssClass="auto-style4" Height="35px" Width="152px" OnSelectedIndexChanged="drinkList_SelectedIndexChanged">
                     </asp:DropDownList>
+                    </strong>
                     <asp:Label ID="drinkPriceLB" runat="server" Text="X元" style="background-color: #FFFFFF" CssClass="auto-style4"></asp:Label>
                     <asp:Label ID="drinkQtLB" runat="server" Text="庫存: X個" style="background-color: #FFFFFF" CssClass="auto-style4"></asp:Label>
         <strong>
         &nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="favoriteBT" runat="server" CssClass="auto-style6" OnClick="favoriteBT_Click" Text="加入最愛" />
-                    <asp:Label ID="favoriteLB" runat="server" BackColor="White" ForeColor="#CC0000" Text="成功加入最愛!" Visible="False"></asp:Label>
+                    <asp:Button ID="favoriteBT" runat="server" CssClass="auto-style6" OnClick="favoriteBT_Click" Text="收藏" />
+                    <asp:Label ID="favoriteLB" runat="server" BackColor="White" ForeColor="#CC0000" Text="成功收藏!" Visible="False"></asp:Label>
+                    <asp:LinkButton ID="favoriteLinkBT" runat="server" CssClass="auto-style13" PostBackUrl="~/favorite.aspx" Visible="False">查看我的收藏</asp:LinkButton>
         </strong>
                 </td>
                 <td class="auto-style10"></td>
@@ -91,17 +97,17 @@
         <asp:DropDownList ID="cuplist" runat="server" CssClass="auto-style6" Visible="False">
         </asp:DropDownList>
         <asp:Label ID="cuplb" runat="server" CssClass="auto-style5" Text="件" Visible="False"></asp:Label>
-        <asp:DropDownList ID="sweetlist" runat="server" CssClass="auto-style6" Visible="False">
-            <asp:ListItem Value="big">大</asp:ListItem>
-            <asp:ListItem Value="middle">中</asp:ListItem>
-            <asp:ListItem Value="little">小</asp:ListItem>
-        </asp:DropDownList>
-        <asp:Label ID="cuplb0" runat="server" CssClass="auto-style5" Text="份" Visible="False"></asp:Label>
         <asp:DropDownList ID="icelist" runat="server" CssClass="auto-style6" Visible="False">
             <asp:ListItem>無包裝</asp:ListItem>
             <asp:ListItem>單獨包裝</asp:ListItem>
             <asp:ListItem>合併包裝</asp:ListItem>
             <asp:ListItem>精緻包裝</asp:ListItem>
+        </asp:DropDownList>
+        &nbsp;
+        <asp:DropDownList ID="sweetlist" runat="server" CssClass="auto-style6" Visible="False">
+            <asp:ListItem>無需求</asp:ListItem>
+            <asp:ListItem>蛋奶素</asp:ListItem>
+            <asp:ListItem>全素</asp:ListItem>
         </asp:DropDownList>
         <asp:Button ID="addItemBT" runat="server" CssClass="auto-style6" Enabled="False" OnClick="Button1_Click" Text="添加" Visible="False" />
         </strong>
@@ -130,7 +136,7 @@
                                     <asp:Label ID="Label1" runat="server" Text='<%# Bind("orderItem_Id") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="飲品名" SortExpression="drink_name">
+                            <asp:TemplateField HeaderText="品名" SortExpression="drink_name">
                                 <EditItemTemplate>
                                     <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("drink_name") %>'></asp:TextBox>
                                 </EditItemTemplate>
@@ -146,7 +152,7 @@
                                     <asp:Label ID="Label3" runat="server" Text='<%# Bind("num") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="甜度" SortExpression="sweet">
+                            <asp:TemplateField HeaderText="包裝" SortExpression="ice">
                                 <EditItemTemplate>
                                     <asp:TextBox ID="TextBox7" runat="server" Text='<%# Bind("sweet") %>'></asp:TextBox>
                                 </EditItemTemplate>
@@ -154,7 +160,7 @@
                                     <asp:Label ID="Label4" runat="server" Text='<%# Bind("sweet") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="冰度" SortExpression="ice">
+                            <asp:TemplateField HeaderText="需求" SortExpression="sweet">
                                 <EditItemTemplate>
                                     <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("ice") %>'></asp:TextBox>
                                 </EditItemTemplate>
@@ -346,14 +352,11 @@
                 <asp:ControlParameter ControlID="discountTB" Name="discount_code" PropertyName="Text" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
-        <asp:SqlDataSource ID="addfavoriteSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" InsertCommand="INSERT INTO favorite_Table(favorite_1, user_name) VALUES (@favorite_1, @user_name)" SelectCommand="SELECT favorite_Table.user_name, favorite_Table.favorite_1 FROM drinkTable CROSS JOIN userData CROSS JOIN favorite_Table WHERE (favorite_Table.user_name = @name)">
+        <asp:SqlDataSource ID="addfavoriteSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" InsertCommand="INSERT INTO FavoriteTable(drink_Id, user_name) VALUES (@drink_Id, @user_name)" SelectCommand="SELECT FROM drinkTable CROSS JOIN userData CROSS JOIN favorite_Table">
             <InsertParameters>
-                <asp:ControlParameter ControlID="drinkList" Name="favorite_1" PropertyName="SelectedValue" />
+                <asp:ControlParameter ControlID="drinkList" Name="drink_Id" PropertyName="SelectedValue" />
                 <asp:SessionParameter Name="user_name" SessionField="name" />
             </InsertParameters>
-            <SelectParameters>
-                <asp:SessionParameter Name="name" SessionField="name" />
-            </SelectParameters>
         </asp:SqlDataSource>
     </form>
 </body>
