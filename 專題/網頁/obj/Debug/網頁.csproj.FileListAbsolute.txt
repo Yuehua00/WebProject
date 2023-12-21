@@ -973,7 +973,6 @@ C:\Users\User\Desktop\School\project\專題\網頁\obj\Debug\網頁.csproj.CoreC
 C:\Users\User\Desktop\School\project\專題\網頁\obj\Debug\網頁.csproj.CopyComplete
 C:\Users\User\Desktop\School\project\專題\網頁\obj\Debug\網頁.dll
 C:\Users\User\Desktop\School\project\專題\網頁\obj\Debug\網頁.pdb
-<<<<<<< HEAD
 E:\下載\WebProject-main_2\WebProject-main\專題\網頁\obj\Debug\網頁.csproj.AssemblyReference.cache
 E:\下載\WebProject-main_2\WebProject-main\專題\網頁\obj\Debug\網頁.csproj.CoreCompileInputs.cache
 E:\下載\WebProject-main_2\WebProject-main\專題\網頁\obj\Debug\網頁.dll
@@ -1049,5 +1048,3 @@ E:\下載\WebProject-main_2\WebProject-main\專題\網頁\bin\Microsoft.CodeDom.
 E:\下載\WebProject-main_2\WebProject-main\專題\網頁\bin\zh-Hant\System.Web.Optimization.resources.dll
 E:\下載\WebProject-main_2\WebProject-main\專題\網頁\bin\zh-Hant\Microsoft.AspNet.FriendlyUrls.resources.dll
 E:\下載\WebProject-main_2\WebProject-main\專題\網頁\obj\Debug\網頁.csproj.CopyComplete
-=======
->>>>>>> 1171c934b4edbfe3e2757eddc4ebe4426b5efcb3

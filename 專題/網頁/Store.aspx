@@ -77,12 +77,8 @@
             </tr>
             <tr>
                 <td class="auto-style10">
-<<<<<<< HEAD
                     <strong>
                     <asp:DropDownList ID="drinkList" runat="server" AutoPostBack="True" DataSourceID="drinkData" DataTextField="drink_name" DataValueField="drink_Id" OnPreRender="drinkList_PreRender" CssClass="auto-style4" Height="35px" Width="152px" OnSelectedIndexChanged="drinkList_SelectedIndexChanged">
-=======
-                    <asp:DropDownList ID="drinkList" runat="server" AutoPostBack="True" DataSourceID="drinkData" DataTextField="drink_name" DataValueField="drink_Id" OnPreRender="drinkList_PreRender" CssClass="auto-style4" Height="35px" Width="152px">
->>>>>>> 1171c934b4edbfe3e2757eddc4ebe4426b5efcb3
                     </asp:DropDownList>
                     </strong>
                     <asp:Label ID="drinkPriceLB" runat="server" Text="X元" style="background-color: #FFFFFF" CssClass="auto-style4"></asp:Label>

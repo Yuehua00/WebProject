@@ -161,11 +161,7 @@ namespace 網頁
                 if (oderItemGridView1.Rows[i].Cells[4].FindControl("subtotalLabel") != null)
                 {
                     total += Convert.ToInt32(((Label)oderItemGridView1.Rows[i].Cells[4].FindControl("subtotalLabel")).Text);
-<<<<<<< HEAD
 
-=======
-                    
->>>>>>> 1171c934b4edbfe3e2757eddc4ebe4426b5efcb3
                 }
                 cupEditCheck(ref warmMag, i);
             }
@@ -193,11 +189,7 @@ namespace 網頁
                 if (oderItemGridView1.Rows[i].Cells[4].FindControl("subtotalLabel") != null)
                 {
                     total += Convert.ToInt32(((Label)oderItemGridView1.Rows[i].Cells[4].FindControl("subtotalLabel")).Text);
-<<<<<<< HEAD
 
-=======
-                    
->>>>>>> 1171c934b4edbfe3e2757eddc4ebe4426b5efcb3
                 }
                 cupEditCheck(ref warmMag, i);
             }
