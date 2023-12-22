@@ -14,6 +14,18 @@ namespace 網頁
             clientDetailsView1.DataBind();
             DetailsView1.DataBind();
             Label3.Visible = false;
+            remember.Visible = true;
+            if (!IsPostBack) // Only execute on initial page load, not during postbacks
+            {
+                if (Request.Cookies["RememberMeCookie"] != null)
+                {
+                    string username = Request.Cookies["RememberMeCookie"]["username"];
+
+                    TextBox1.Text = username;
+                    remember.Checked = true;
+                }
+            }
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -35,6 +47,23 @@ namespace 網頁
                 Session["id"] = clientDetailsView1.Rows[8].Cells[1].Text;
                 LinkButton1.Visible = true;
                 ReviseLB.Visible = true;
+                remember.Visible = false;
+                if (remember.Checked)
+                {
+
+                    HttpCookie rememberMeCookie = new HttpCookie("RememberMeCookie");
+                    rememberMeCookie.Values["loggedIn"] = "true";
+                    rememberMeCookie.Values["username"] = TextBox1.Text;
+                    rememberMeCookie.Expires = DateTime.Now.AddDays(1);
+                    Response.Cookies.Add(rememberMeCookie);
+                }
+                else
+                {
+                    if (Request.Cookies["RememberMeCookie"] != null)
+                    {
+                        Response.Cookies["RememberMeCookie"].Expires = DateTime.Now.AddDays(-1);
+                    }
+                }
             }
             else
             {

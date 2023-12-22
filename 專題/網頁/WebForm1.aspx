@@ -47,6 +47,10 @@
             font-size: medium;
             color: #FF0000;
         }
+        .auto-style13 {
+            font-size: medium;
+            background-color: #FFFFFF;
+        }
     </style>
 </head>
 <body style="background-position: center center; background-size:cover; background-image: url('https://localhost:44332/b1a7659daeaa88290aa1f1705ff3c433.jpg'); background-repeat: no-repeat; background-attachment: fixed;">
@@ -100,7 +104,8 @@
                 <td class="auto-style8">
                     &nbsp;</td>
                 <td class="auto-style7">
-                    &nbsp;</td>
+                    <asp:CheckBox ID="remember" runat="server" CssClass="auto-style13" Text="記住我的帳號" />
+                </td>
                 <td class="auto-style1">&nbsp;</td>
             </tr>
         </table>

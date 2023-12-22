@@ -203,7 +203,7 @@
                     <asp:TextBox ID="NewName" runat="server" CssClass="auto-style21" Width="250px" Height="24px"></asp:TextBox>
                         </strong></td>
                     <td>
-                        <asp:Label ID="warning" runat="server" CssClass="auto-style47" Text="您的資料將會永久消失!" Visible="False"></asp:Label>
+                        <asp:Label ID="warning" runat="server" CssClass="auto-style47" Text="您的資料將會永遠消失!" Visible="False"></asp:Label>
                     </td>
                 </tr>
                 <tr>
