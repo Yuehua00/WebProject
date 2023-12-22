@@ -134,6 +134,14 @@
             background-color: #FFFFFF;
             font-size: medium;
         }
+        .auto-style46 {
+            font-size: x-large;
+            background-color: #FF3300;
+        }
+        .auto-style47 {
+            font-size: large;
+            color: #CC3300;
+        }
     </style>
 </head>
 <body style="background-image: url('revise.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-position: center center; background-size: cover; ">
@@ -178,7 +186,9 @@
                 <td class="auto-style14">
                     <strong>目前資料</strong></td>
                     <td class="auto-style31"><strong>欲修改資料</strong></td>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:Button ID="finaldelete" runat="server" CssClass="auto-style46" OnClick="finaldelete_Click" Text="確認刪除?" Visible="False" />
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style5">&nbsp;</td>
@@ -192,7 +202,9 @@
                     <td class="auto-style35"><strong>
                     <asp:TextBox ID="NewName" runat="server" CssClass="auto-style21" Width="250px" Height="24px"></asp:TextBox>
                         </strong></td>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:Label ID="warning" runat="server" CssClass="auto-style47" Text="您的資料將會永久消失!" Visible="False"></asp:Label>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style22">&nbsp;</td>

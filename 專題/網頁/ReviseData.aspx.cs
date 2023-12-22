@@ -17,6 +17,8 @@ namespace 網頁
         protected string Newaddress;
         protected void Page_Load(object sender, EventArgs e)
         {
+            finaldelete.Visible = false;
+            warning.Visible = false;
             ConfirmContexts.Visible = false;
             OrgNameLB.Text = Session["name"] as string;
             OrgTelLB.Text = Session["phone"] as string;
@@ -111,9 +113,8 @@ namespace 網頁
 
         protected void delete_Click(object sender, EventArgs e)
         {
-            DeleteDataFromDatabase(Convert.ToInt32(Session["id"]));
-            Session.Clear();
-            Response.Redirect("~/WebForm1.aspx");
+            finaldelete.Visible = true;
+            warning.Visible = true;
         }
         private void DeleteDataFromDatabase(int drinkIdToDelete)
         {
@@ -133,6 +134,13 @@ namespace 網頁
             }
         }
 
+
+        protected void finaldelete_Click(object sender, EventArgs e)
+        {
+            DeleteDataFromDatabase(Convert.ToInt32(Session["id"]));
+            Session.Clear();
+            Response.Redirect("~/WebForm1.aspx");
+        }
     }
     
    
