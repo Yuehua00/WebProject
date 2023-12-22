@@ -141,6 +141,7 @@
         .auto-style47 {
             font-size: large;
             color: #CC3300;
+            background-color: #FFFFFF;
         }
     </style>
 </head>

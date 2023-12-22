@@ -136,6 +136,7 @@ namespace 網頁
             favoriteLB.Visible = false;
             favoriteLinkBT.Visible = false;
             addmoney.Visible = false;
+            addLB.Visible = false;
         }
 
 
@@ -154,10 +155,10 @@ namespace 網頁
             discountTB.Visible = true;
         }
 
-
+        
         private void countTotal()
         {
-            int total = 0;
+           int total = 0;
             string warmMag = "";
             for (int i = 0; i < oderItemGridView1.Rows.Count; i++)
             {
@@ -171,7 +172,12 @@ namespace 網頁
             totalLabel.Text = warmMag + " 總價: " + total + " 元";
 
             Session["total"] = total;
+            checknoe(total);
 
+            
+        }
+        private void checknoe(int total)
+        {
             if (0 == total)
             {
                 checkBT.Enabled = false;
@@ -182,6 +188,7 @@ namespace 網頁
                 arrorLB.Text = "餘額不足";
                 arrorLB.Visible = true;
                 addmoney.Visible = true;
+                addLB.Visible = true;
             }
         }
         private void discountTotal()
@@ -256,7 +263,7 @@ namespace 網頁
 
         protected void oderItemGridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            //countTotal();
+           //countTotal();
         }
         protected void oderItemGridView1_RowDeleted1(object sender, GridViewDeletedEventArgs e)
         {
@@ -418,8 +425,52 @@ namespace 網頁
 
         protected void addmoney_Click(object sender, EventArgs e)
         {
+            int total = Convert.ToInt32(Session["total"]);
             Session["money"] = Convert.ToInt32(Session["money"]) + 100;
             userShowLB.Text = Session["name"] + " 歡迎光臨<br>您還剩下" + Session["money"] + " 元";
+            checkDataSource.Delete();
+            addmoney.Visible = false;
+            addLB.Visible = false;
+            if (0 == total)
+            {
+                checkBT.Enabled = false;
+            }
+            if (Convert.ToInt32(Session["money"]) < total)
+            {
+                checkBT.Enabled = false;
+                arrorLB.Text = "餘額不足";
+                arrorLB.Visible = true;
+                addmoney.Visible = true;
+                addLB.Visible = true;
+            }
+            else
+            {
+                checkBT.Enabled = true;
+                arrorLB.Visible = false;
+            }
+        }
+
+        protected void oderItemGridView1_RowDataBound1(object sender, GridViewRowEventArgs e)
+        {
+          
+        }
+
+        protected void oderItemGridView1_DataBound1(object sender, EventArgs e)
+        {
+
+            arrorLB.Text = "";
+            arrorLB.Visible = false;
+            checkBT.Enabled = true;
+            countTotal();
+
+            qtCheckGridView1.DataBind();
+            qtCheck();
+
+        }
+
+        protected void oderItemGridView1_RowDeleted(object sender, GridViewDeletedEventArgs e)
+        {
+
         }
     }
 }
