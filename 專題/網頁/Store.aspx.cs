@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
 
 namespace 網頁
 {
@@ -31,7 +33,6 @@ namespace 網頁
             }
 
         }
-
         protected void drinkList_PreRender(object sender, EventArgs e)
         {
             drinkImage1.ImageUrl = "./pic/" + drinkList.SelectedItem.Text.ToString() + ".jpg";
@@ -121,6 +122,7 @@ namespace 網頁
             addItemBT.Visible = false;
             addItemBT.Enabled = false;
             oderItemGridView1.Visible = false;
+            total.Visible = false;
             totalLabel.Visible = false;
             checkBT.Visible = false;
             cancelBT.Visible = false;
@@ -395,5 +397,22 @@ namespace 網頁
             favoriteLB.Visible = false;
             //favoriteLinkBT.Visible = true;
         }
+
+        protected void logoutBT_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("~/WebForm1.aspx");
+        }
+
+        protected void Look_Click(object sender, EventArgs e)
+        {
+            total.Visible = true;
+        }
+
+        protected void Hide_Click(object sender, EventArgs e)
+        {
+            total.Visible = false;
+        }
+
     }
 }

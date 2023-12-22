@@ -130,6 +130,10 @@
             font-size: medium;
             font-weight: bold;
         }
+        .auto-style45 {
+            background-color: #FFFFFF;
+            font-size: medium;
+        }
     </style>
 </head>
 <body style="background-image: url('revise.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-position: center center; background-size: cover; ">
@@ -140,7 +144,10 @@
             <table class="auto-style2" style="position: relative">
                 <tr>
                     <td class="auto-style5">
-                        <asp:SqlDataSource ID="UserData" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [userData] WHERE (([user_password] = @user_password) AND ([user_account] = @user_account))" UpdateCommand="UPDATE userData SET user_name = @NewName, user_password = @NewPass, user_phone = @NewPhone, user_email = @NewEmail, user_hint = @NewHint WHERE (user_account = @account)">
+                        <asp:SqlDataSource ID="UserData" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [userData] WHERE (([user_password] = @user_password) AND ([user_account] = @user_account))" UpdateCommand="UPDATE userData SET user_name = @NewName, user_password = @NewPass, user_phone = @NewPhone, user_email = @NewEmail, user_hint = @NewHint WHERE (user_account = @account)" DeleteCommand="DELETE FROM userData WHERE (user_ID = @user_ID)">
+                            <DeleteParameters>
+                                <asp:ControlParameter Name="user_ID" />
+                            </DeleteParameters>
                             <SelectParameters>
                                 <asp:SessionParameter Name="user_password" SessionField="password" Type="String" />
                                 <asp:SessionParameter Name="user_account" SessionField="account" Type="String" />
@@ -160,7 +167,9 @@
                     <asp:Label ID="OrgAccLB" runat="server" CssClass="auto-style7" Text="帳號"></asp:Label>
                     </td>
                     <td class="auto-style34">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td>
+                        <asp:Button ID="delete" runat="server" CssClass="auto-style45" OnClick="delete_Click" Text="刪除帳號" />
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style5">&nbsp;</td>

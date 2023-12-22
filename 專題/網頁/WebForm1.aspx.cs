@@ -32,6 +32,7 @@ namespace 網頁
                 Session["address"] = clientDetailsView1.Rows[5].Cells[1].Text;
                 Session["account"] = clientDetailsView1.Rows[6].Cells[1].Text;
                 Session["email"] = clientDetailsView1.Rows[7].Cells[1].Text;
+                Session["id"] = clientDetailsView1.Rows[8].Cells[1].Text;
                 LinkButton1.Visible = true;
                 ReviseLB.Visible = true;
             }

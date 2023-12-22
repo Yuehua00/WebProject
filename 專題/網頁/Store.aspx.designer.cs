@@ -1,10 +1,10 @@
 ﻿//------------------------------------------------------------------------------
-// <自動產生的>
+// <自動產生>
 //     這段程式碼是由工具產生的。
 //
 //     變更這個檔案可能會導致不正確的行為，而且如果已重新產生
 //     程式碼，則會遺失變更。
-// </自動產生的>
+// </自動產生>
 //------------------------------------------------------------------------------
 
 namespace 網頁
@@ -31,6 +31,15 @@ namespace 網頁
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label userShowLB;
+
+        /// <summary>
+        /// logoutBT 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button logoutBT;
 
         /// <summary>
         /// orderBT 控制項。
@@ -150,6 +159,24 @@ namespace 網頁
         protected global::System.Web.UI.WebControls.Button addItemBT;
 
         /// <summary>
+        /// Look 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Look;
+
+        /// <summary>
+        /// Hide 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Hide;
+
+        /// <summary>
         /// drinkImage1 控制項。
         /// </summary>
         /// <remarks>
@@ -157,6 +184,15 @@ namespace 網頁
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image drinkImage1;
+
+        /// <summary>
+        /// total 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView total;
 
         /// <summary>
         /// oderItemGridView1 控制項。
@@ -364,5 +400,14 @@ namespace 網頁
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource addfavoriteSqlDataSource;
+
+        /// <summary>
+        /// sad 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sad;
     }
 }

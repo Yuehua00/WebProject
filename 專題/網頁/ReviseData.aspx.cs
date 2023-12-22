@@ -8,6 +8,7 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Data.SqlClient;
 using System.Net;
 using System.Reflection.Emit;
+using System.Data;
 
 namespace 網頁
 {
@@ -107,6 +108,31 @@ namespace 網頁
             SendRevise.Visible = false;
             ReturnRevise.Visible = false;
         }
+
+        protected void delete_Click(object sender, EventArgs e)
+        {
+            DeleteDataFromDatabase(Convert.ToInt32(Session["id"]));
+            Session.Clear();
+            Response.Redirect("~/WebForm1.aspx");
+        }
+        private void DeleteDataFromDatabase(int drinkIdToDelete)
+        {
+            using (SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\ClientData.mdf;Integrated Security=True"))
+
+            {
+                connection.Open();
+
+                string deleteQuery = "DELETE FROM userData WHERE user_ID = @user_ID";
+
+                using (SqlCommand command = new SqlCommand(deleteQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@user_ID", drinkIdToDelete);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
     }
     
    

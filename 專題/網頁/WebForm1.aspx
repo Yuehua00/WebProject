@@ -114,9 +114,10 @@
                 <asp:BoundField DataField="user_adress" HeaderText="user_adress" SortExpression="user_adress" />
                 <asp:BoundField DataField="user_account" HeaderText="user_account" SortExpression="user_account" />
                 <asp:BoundField DataField="user_email" HeaderText="user_email" SortExpression="user_email" />
+                <asp:BoundField DataField="user_ID" HeaderText="user_ID" InsertVisible="False" ReadOnly="True" SortExpression="user_ID" />
             </Fields>
         </asp:DetailsView>
-        <asp:SqlDataSource ID="clientSqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT user_name, user_money, user_phone, user_hint, user_password, user_adress, user_account, user_email FROM userData WHERE (user_password = @user_password) AND (user_account = @user_account)">
+        <asp:SqlDataSource ID="clientSqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT user_name, user_money, user_phone, user_hint, user_password, user_adress, user_account, user_email, user_ID FROM userData WHERE (user_password = @user_password) AND (user_account = @user_account)">
             <SelectParameters>
                 <asp:ControlParameter ControlID="TextBox2" Name="user_password" PropertyName="Text" Type="String" />
                 <asp:ControlParameter ControlID="TextBox1" Name="user_account" PropertyName="Text" />
