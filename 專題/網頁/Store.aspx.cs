@@ -135,6 +135,7 @@ namespace 網頁
             favoriteBT.Visible = false;
             favoriteLB.Visible = false;
             favoriteLinkBT.Visible = false;
+            addmoney.Visible = false;
         }
 
 
@@ -180,6 +181,7 @@ namespace 網頁
                 checkBT.Enabled = false;
                 arrorLB.Text = "餘額不足";
                 arrorLB.Visible = true;
+                addmoney.Visible = true;
             }
         }
         private void discountTotal()
@@ -414,5 +416,10 @@ namespace 網頁
             total.Visible = false;
         }
 
+        protected void addmoney_Click(object sender, EventArgs e)
+        {
+            Session["money"] = Convert.ToInt32(Session["money"]) + 100;
+            userShowLB.Text = Session["name"] + " 歡迎光臨<br>您還剩下" + Session["money"] + " 元";
+        }
     }
 }

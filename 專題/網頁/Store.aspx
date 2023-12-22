@@ -257,6 +257,7 @@
                     <br />
                     <asp:Button ID="checkBT" runat="server" CssClass="auto-style4" OnClick="checkBT_Click" Text="確認訂購" Visible="False" />
                     <asp:Button ID="cancelBT" runat="server" CssClass="auto-style4" OnClick="cancelBT_Click" Text="取消訂購" Visible="False" />
+                    <asp:Button ID="addmoney" runat="server" OnClick="addmoney_Click" Text="儲值" />
                     <br />
                     <br />
                     <asp:Label ID="arrorLB" runat="server" BackColor="White" ForeColor="Red" Text="錯誤提示" Visible="False"></asp:Label>
